@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from Myblog.models import blogPost,blogComment
 
-# Create your views here.
+
+
+def blogHome(request):
+
+	blogpost = blogPost.objects.all()
+	return render(request,'Myblog/blogHome.html', {'blogPost': blogpost})
