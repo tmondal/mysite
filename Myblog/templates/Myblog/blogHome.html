@@ -4,10 +4,8 @@
 	<body>
 		<h1>Mybolog</h1>
 		<h2> So it worked.. </h2>
-
-		{% for post in blogpost %}
-			<h2><a href="{% url 'Myblog:blogDetail' post.id %}"> {{ post.title }}</a> </h2>
+		{% for blog in blogpost %}
+			<h2><a href="{% url 'Myblog:blogDetail' blog.id %}">{{ blog.title }}</a></h2>
 		{% endfor %}
-
 	</body>
 </html>

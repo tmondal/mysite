@@ -1,13 +1,35 @@
 
 <html>
-	<head>
+	<!-- <head>
 		<title>BlogDetail</title>
 	</head>
 	<body>
 		<h1>Place of body of the Blog </h1>
 
-			<h1>{{ post.title }}</h1>
-			{{ post.body }}
-			{{ comment.author }}
+			<h1>{{ blog.title }}</h1>
+			{{ blog.body }}
+
+			{% if comments %}
+    			<p>Comments:</p>
+			{% endif %}
+
+			{% for comment in comments %}
+			    <div class="comment">
+			        <div class="time">{{ comment.created }} | {{ comment.author }}</div>
+			        <div class="body">{{ comment.body|linebreaks }}</div>
+			    </div>
+			{% endfor %}
+			<br /> -->
+
+			<h2>Add Comment:</h2>
+
+			<form action="" method="POST">
+			    {% csrf_token %}
+			    
+			        {{ form.as_p }}
+			    
+			    <input type="submit" name="submit" value="Submit" />
+			</form>
+
 	</body>
 </html>

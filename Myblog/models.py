@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 class blogPost(models.Model):
 
 	title = models.CharField(max_length = 200)
@@ -17,11 +18,10 @@ class blogComment(models.Model):
 
 	created = models.DateTimeField(auto_now_add = True)
 	author = models.CharField(max_length = 200)
-	body = models.TextField()
+	body = models.TextField(null = True)
 	blogpost = models.ForeignKey(blogPost)
 
 
 	def __str__(self):
 
 		return self.body[:60]
-

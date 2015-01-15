@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from Myblog.models import blogPost,blogComment
-from django.views import generic
+from django.shortcuts import render,render_to_response, get_object_or_404
+from django.template import RequestContext
+
+from .models import blogPost,blogComment
+from .forms import CommentForm
 
 def blogHome(request):
 
@@ -8,6 +10,10 @@ def blogHome(request):
 	return render(request,'Myblog/blogHome.html', {'blogpost': blogpost})
 
 def blogDetail(request,blah):
-	blog = blogPost.objects.get(pk=blah)
-	return render(request, 'Myblog/blogDetail.html', {'post': blog})
-
+	blog = get_object_or_404(blogPost, pk = blah)
+	# comments = blogComment.objects.all()
+	form = CommentForm(request.POST)
+	if form.is_valid():
+		save_it = form.save(commit = False)
+		save_it.save()
+	return render_to_response('Myblog/blogDetail.html',{'form': form,'blog':blog},context_instance = RequestContext(request))
