@@ -1,6 +1,6 @@
 
 <html>
-	<!-- <head>
+	<head>
 		<title>BlogDetail</title>
 	</head>
 	<body>
@@ -10,7 +10,7 @@
 			{{ blog.body }}
 
 			{% if comments %}
-    			<p>Comments:</p>
+    			<p><b>Comments:</b></p>
 			{% endif %}
 
 			{% for comment in comments %}
@@ -19,7 +19,7 @@
 			        <div class="body">{{ comment.body|linebreaks }}</div>
 			    </div>
 			{% endfor %}
-			<br /> -->
+			<br />
 
 			<h2>Add Comment:</h2>
 

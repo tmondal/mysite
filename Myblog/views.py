@@ -11,9 +11,10 @@ def blogHome(request):
 
 def blogDetail(request,blah):
 	blog = get_object_or_404(blogPost, pk = blah)
-	# comments = blogComment.objects.all()
+	comments = blog.blogcomment_set.all()
 	form = CommentForm(request.POST)
 	if form.is_valid():
 		save_it = form.save(commit = False)
+		save_it.blogpost = blog
 		save_it.save()
-	return render_to_response('Myblog/blogDetail.html',{'form': form,'blog':blog},context_instance = RequestContext(request))
+	return render_to_response('Myblog/blogDetail.html',{'form': form,'blog':blog,'comments':comments},context_instance = RequestContext(request))

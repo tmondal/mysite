@@ -24,4 +24,4 @@ class blogComment(models.Model):
 
 	def __str__(self):
 
-		return self.body[:60]
+		return self.author
