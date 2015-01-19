@@ -1,4 +1,4 @@
-{% extends "admin/base.html" %}
+<!-- {% extends "admin/base.html" %}
 
 {% block title %}Admin{% endblock %}
 
@@ -6,4 +6,15 @@
 <h1 id="site-name"><a href="{% url 'admin:index' %}">Mysite admin</a></h1>
 {% endblock %}
 
-{% block nav-global %}{% endblock %}
+{% block nav-global %}{% endblock %} -->
+
+
+
+<html>
+	<body>
+		
+		<h2> This base html </h2>
+		{% block content %}
+		{% endblock %}
+	</body>
+</html>
