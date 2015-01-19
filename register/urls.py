@@ -7,6 +7,6 @@ urlpatterns = patterns('',
 	url(r'^accounts/login/$',views.login),
 	url(r'^accounts/login_view/$',views.login_view),
 	url(r'^accounts/login_view/logged_in/$',views.logged_in),
-	url(r'^accounts/invalid/$',views.invalid_login),
+	url(r'^accounts/login_view/invalid_login/$',views.invalid_login),
 	url(r'^accounts/logout/$',views.logout_view),
 )

@@ -14,13 +14,15 @@ def login_view(request):
     password = request.POST['password']
     user = authenticate(username = username, password = password)
     if user is not None:
-        if user.is_active:
-            login(request)
-            # Redirect to a success page.
-            return HttpResponseRedirect('logged_in')
-        else:
-            # Return a 'disabled account' error message
-            print('The account has been disabled')
+        # if user.is_active:
+        #     login(request,user)
+        #     # Redirect to a success page.
+        #     return HttpResponseRedirect('logged_in')
+        # else:
+        #     # Return a 'disabled account' error message
+        #     print('The account has been disabled')
+        login(request)
+        return HttpResponseRedirect('logged_in')
     else:
         # Return an 'invalid login' error message.
         return HttpResponseRedirect('invalid_login')
