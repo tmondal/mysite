@@ -1,0 +1,11 @@
+<h2>This is registration page</h2>
+{% if form.errors %}
+	<h2>Try again with proper username and password .</h2>
+	
+{% endif %}
+<form action="/register/accounts/registration/" method="post">
+
+	{% csrf_token %}
+	{{ form }}
+	<input type="submit" value="Register" />
+</form>
