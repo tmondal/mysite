@@ -1,6 +1,9 @@
-<h2> Logout page </h2>
+{% extends 'accounts/home.html'%}
 
+{% block logout %}
+<h2> Logout page </h2>
 <h3>you are logged out </h3>
 <form action="/register/accounts/login/">
-	<input type="submit" value="login" />
+	<input class="btn btn-primary" type="submit" value="Login">
 </form>
+{% endblock %}

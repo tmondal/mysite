@@ -1,6 +1,13 @@
-<h2> Invalid login page </h2>
+{% extends 'accounts/home.html'%}
 
+{% block invalid_login %}
+<h2> Invalid login page </h2>
 <h2>Sorry,you are not registerd with this username or password .</h2>
 <form action="/register/accounts/login/">
-	<input type="submit" value="login" />
+	<input class="btn btn-primary" type="submit" value="Login">
 </form>
+</br>
+<form action="/register/accounts/registration/">
+	<input class="btn btn-primary" type="submit" value="Registration">
+</form>
+{% endblock %}

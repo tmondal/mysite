@@ -1,3 +1,7 @@
+
+{% extends 'accounts/home.html'%}
+
+{% block registration %}
 <h2>This is registration page</h2>
 {% if form.errors %}
 	<h2>Try again with proper username and password .</h2>
@@ -6,6 +10,9 @@
 <form action="/register/accounts/registration/" method="post">
 
 	{% csrf_token %}
-	{{ form }}
-	<input type="submit" value="Register" />
+	{{ form.as_p }}
+	<input class="btn btn-primary" type="submit" value="Submit">
 </form>
+
+{% endblock %}
+

@@ -4,7 +4,8 @@ from django.contrib.auth import authenticate, login,logout
 from django.core.context_processors import csrf
 from django.contrib.auth.forms import UserCreationForm
 
-
+def home(request):
+	return render_to_response('accounts/home.html')
 def login(request):
 	dic = {}
 	dic.update(csrf(request))
@@ -15,13 +16,6 @@ def login_view(request):
     password = request.POST['password']
     user = authenticate(username = username, password = password)
     if user is not None:
-        # if user.is_active:
-        #     login(request,user)
-        #     # Redirect to a success page.
-        #     return HttpResponseRedirect('logged_in')
-        # else:
-        #     # Return a 'disabled account' error message
-        #     print('The account has been disabled')
         login(request)
         return HttpResponseRedirect('logged_in')
     else:

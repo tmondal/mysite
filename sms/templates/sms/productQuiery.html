@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% load staticfiles %}
+
+    <title>SMS</title>
+
+    <!-- Bootstrap core CSS -->
+  
+    <link rel="stylesheet" type="text/css" href="{% static 'sms/css/cover.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'sms/css/bootstrap.min.css' %}" />
+  </head>
+
+  <body>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h2 class="masthead-brand">Stock Management System</h2>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <a href="/sms/templates">HOME</a> |
+                  <a href="/sms/templates/sms/productupdate/">UPDATE</a> |
+                  <a href="/sms/templates/sms/productdetails/">DETAILS</a>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div>
+            <form type="get" action="." style="margin: 0">
+              <input  id="search_box" type="text" name="search_box"  placeholder="Search by Name or Type.." >
+              <button id="search_submit" type="submit" >Submit</button>
+            </form>
+          </div>
+          <div class="inner cover">
+      			<h2>All Searched Information </h2>
+      			<table border="1" style="width:100%">
+      				<tr>
+      				    <td>PRODUCT NAME</td>
+      				    <td>PRODUCT TYPE</td>
+      				    <td>PRODUCT AMOUNT</td>
+      				    <td>ENTRY DATE</td>
+      				  </tr>
+      				{% for p in product %}
+                {% if p.name == query or p.ptype == query or p.entry_date == query %}
+        				  <tr>
+        				    <td>{{p.name}}</td>
+        				    <td>{{p.ptype}}</td>
+        				    <td>{{p.amount}}</td>
+        				    <td>{{p.entry_date}}</td>
+        				  </tr>
+                {% endif %}
+      				{% endfor %}
+      			</table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/static/sms/js/bootstrap.min.js"></script>
+  </body>
+</html>
+

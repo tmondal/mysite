@@ -4,6 +4,7 @@ from register import views
 
 urlpatterns = patterns('',
 
+	url(r'^accounts/$','register.views.home'),
 	url(r'^accounts/login/$', 'register.views.login'),
 	url(r'^accounts/login_view/$','register.views.login_view'),
 	url(r'^accounts/login_view/logged_in/$','register.views.logged_in'),
